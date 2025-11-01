@@ -9,7 +9,7 @@ async function fetchFromGov() {
   try {
     console.log('Fetching from data.gov.in API...');
     
-    /
+    // Fetch data for multiple months to get historical records
     const allUpRecords = [];
     let offset = 0;
     const limit = 10; // API max limit
