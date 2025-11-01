@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  mongo:
+    image: mongo:7
+    volumes:
+      - mongo-data:/data/db
+    ports:
+      - "27017:27017"
+    restart: unless-stopped
+
+  server:
+    build: ./server
+    environment:
+      - MONGO_URL=mongodb://mongo:27017/mgnrega
+      - PORT=4000
+    ports:
+      - "4000:4000"
+    depends_on:
+      - mongo
+    restart: unless-stopped
+
+  client:
+    build: ./client
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+
+volumes:
+  mongo-data:

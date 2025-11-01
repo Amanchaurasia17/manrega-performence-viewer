@@ -1,0 +1,77 @@
+// Simple i18n dictionary for Hindi and English
+export const translations = {
+  en: {
+    title: 'Our Voice, Our Rights',
+    subtitle: 'MGNREGA District Performance',
+    detectingLocation: 'Detecting your location...',
+    locationDetected: 'Location detected',
+    useMyLocation: '📍 Use My Location',
+    skip: 'Skip',
+    selectDistrict: '-- Select Your District --',
+    or: 'or',
+    chooseManually: 'Choose Manually',
+    district: 'District',
+    latestJobs: 'Latest Jobs Given',
+    personDays: 'person-days of work',
+    trend: 'Recent Trend',
+    compare: '📊 Compare Nearby',
+    help: '❓ Help & FAQs',
+    back: '← Back',
+    compareTitle: 'How does my district compare?',
+    helpTitle: 'Help & FAQs',
+    faq1Q: 'What is MGNREGA?',
+    faq1A: 'MGNREGA guarantees 100 days of wage employment per year to rural households. It provides work to those who need it.',
+    faq2Q: 'What do these numbers mean?',
+    faq2A: 'Person-days show how many days of work were given. Higher numbers mean more jobs and wages for people in your district.',
+    faq3Q: 'How is my district doing?',
+    faq3A: 'Check the trend chart. If the line goes up, more work is being provided. Compare with nearby districts to see how your district is performing.',
+    listen: '🔊 Listen',
+    noData: 'No data available',
+    performanceGood: '😊 Good',
+    performanceFair: '😐 Fair',
+    performancePoor: '😞 Needs Improvement',
+    outOf100: 'Out of 100 people',
+    gotWork: 'got work',
+    dataSource: 'Data powered by Government of India (cached)'
+  },
+  hi: {
+    title: 'हमारी आवाज़, हमारे हक़',
+    subtitle: 'मनरेगा जिला प्रदर्शन',
+    detectingLocation: 'आपका स्थान खोजा जा रहा है...',
+    locationDetected: 'स्थान मिल गया',
+    useMyLocation: '📍 मेरा स्थान उपयोग करें',
+    skip: 'छोड़ें',
+    selectDistrict: '-- अपना जिला चुनें --',
+    or: 'या',
+    chooseManually: 'खुद चुनें',
+    district: 'जिला',
+    latestJobs: 'नवीनतम रोज़गार',
+    personDays: 'व्यक्ति-दिवस का काम',
+    trend: 'हालिया रुझान',
+    compare: '📊 पास के जिलों से तुलना',
+    help: '❓ मदद और सवाल',
+    back: '← वापस',
+    compareTitle: 'मेरे जिले की तुलना कैसी है?',
+    helpTitle: 'मदद और सवाल',
+    faq1Q: 'मनरेगा क्या है?',
+    faq1A: 'मनरेगा ग्रामीण परिवारों को साल में 100 दिन का रोज़गार देता है। यह उन्हें काम देता है जिन्हें इसकी ज़रूरत है।',
+    faq2Q: 'ये संख्याएँ क्या बताती हैं?',
+    faq2A: 'व्यक्ति-दिवस दिखाता है कि कितने दिन का काम मिला। ज़्यादा संख्या का मतलब है आपके जिले में ज़्यादा रोज़गार और मज़दूरी।',
+    faq3Q: 'मेरा जिला कैसा कर रहा है?',
+    faq3A: 'रुझान चार्ट देखें। अगर रेखा ऊपर जाती है, तो ज़्यादा काम मिल रहा है। पास के जिलों से तुलना करके देखें।',
+    listen: '🔊 सुनें',
+    noData: 'कोई डेटा नहीं',
+    performanceGood: '😊 अच्छा',
+    performanceFair: '😐 ठीक',
+    performancePoor: '😞 सुधार चाहिए',
+    outOf100: '100 लोगों में से',
+    gotWork: 'को काम मिला',
+    dataSource: 'डेटा भारत सरकार द्वारा (संग्रहीत)'
+  }
+};
+
+export function detectLocale() {
+  const nav = navigator.language || navigator.userLanguage || 'en';
+  if (nav.startsWith('hi')) return 'hi';
+  return 'en';
+}
