@@ -1,10 +1,23 @@
 # Our Voice, Our Rights - MGNREGA District Performance Viewer
 
+[![Frontend](https://img.shields.io/badge/Frontend-Deployed-success?style=flat&logo=vercel)](https://manrega-performence-viewer-i3xs.vercel.app/)
+[![Backend](https://img.shields.io/badge/Backend-Deployed-success?style=flat&logo=railway)](https://manrega-performence-viewer-production.up.railway.app)
+[![MongoDB](https://img.shields.io/badge/Database-MongoDB%20Atlas-green?style=flat&logo=mongodb)](https://www.mongodb.com/cloud/atlas)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 A production-ready MERN-stack application for viewing MGNREGA district performance data with real-time updates from data.gov.in API. Designed specifically for low-literacy populations in rural India with multilingual support, audio readout, and accessible UI.
+
+## 🚀 Live Application
+
+**Frontend:** [https://manrega-performence-viewer-i3xs.vercel.app/](https://manrega-performence-viewer-i3xs.vercel.app/)  
+**Backend API:** [https://manrega-performence-viewer-production.up.railway.app](https://manrega-performence-viewer-production.up.railway.app)  
+**GitHub Repository:** [https://github.com/Amanchaurasia17/manrega-performence-viewer](https://github.com/Amanchaurasia17/manrega-performence-viewer)
 
 **Live Data Source:** Government of India data.gov.in Open API (340,000+ records)  
 **Target State:** Uttar Pradesh (75 districts with historical data)  
 **Update Frequency:** Automatic 6-hour sync from government API
+
+---
 
 ## 🎯 Key Features
 
@@ -228,7 +241,64 @@ bfh/
 
 ## 🐳 Deployment
 
-### Production Architecture
+### ✅ Current Production Deployment
+
+**Frontend (Vercel):**
+- URL: [https://manrega-performence-viewer-i3xs.vercel.app/](https://manrega-performence-viewer-i3xs.vercel.app/)
+- Framework: Vite + React
+- Auto-deployment: Enabled via GitHub integration
+- CDN: Global edge network
+- Environment Variable: `VITE_API_URL` points to Railway backend
+
+**Backend (Railway):**
+- URL: [https://manrega-performence-viewer-production.up.railway.app](https://manrega-performence-viewer-production.up.railway.app)
+- Framework: Node.js + Express
+- Database: MongoDB Atlas (512MB free tier)
+- Auto-deployment: Enabled via GitHub integration
+- Environment Variables:
+  - `MONGO_URL`: MongoDB Atlas connection string
+  - `DATA_GOV_API_KEY`: Government API key
+  - `PORT`: Auto-assigned by Railway
+
+**Database (MongoDB Atlas):**
+- Region: Asia Southeast (Singapore)
+- Tier: M0 (Free - 512MB storage)
+- Current Data: 75+ districts with 2-3 months historical data
+- Network Access: 0.0.0.0/0 (allow from anywhere)
+
+---
+
+### 🚀 Deploy Your Own Instance
+
+#### Option 1: Vercel + Railway (Recommended - Free Tier)
+
+**Backend on Railway:**
+1. Sign up at [railway.app](https://railway.app)
+2. Click "New Project" → "Deploy from GitHub repo"
+3. Select your forked repository
+4. Set Root Directory: `server`
+5. Add environment variables:
+   - `MONGO_URL`: Your MongoDB connection string
+   - `DATA_GOV_API_KEY`: (optional, has default)
+6. Deploy!
+
+**Frontend on Vercel:**
+1. Sign up at [vercel.com](https://vercel.com)
+2. Click "Add New" → "Project"
+3. Import your GitHub repository
+4. Configure:
+   - Framework Preset: Vite
+   - Root Directory: Leave empty
+   - Build Command: `cd client && npm run build`
+   - Output Directory: `client/dist`
+   - Install Command: `npm install --prefix client`
+5. Add environment variable:
+   - `VITE_API_URL`: Your Railway backend URL + `/api`
+6. Deploy!
+
+---
+
+### Production Architecture (Optional - VPS/Cloud)
 
 **Recommended stack for production:**
 
