@@ -89,6 +89,7 @@ export default function App(){
     }
     navigator.geolocation.getCurrentPosition(pos => {
       const { latitude, longitude } = pos.coords
+      console.log(`Location detected: Lat ${latitude}, Lon ${longitude}`)
       const found = districts.find(d => {
         if (!d.bbox || d.bbox.length !== 4) return false
         const [w,s,e,n] = d.bbox
@@ -98,11 +99,17 @@ export default function App(){
         selectDistrict(found.slug)
         setMessage(silent ? '' : t.locationDetected + ': ' + found.district)
       } else {
-        setMessage(silent ? '' : 'Could not identify district from location')
+        const msg = lang === 'hi' 
+          ? 'स्थान से जिला पहचाना नहीं जा सका। कृपया नीचे सूची से चुनें।'
+          : 'Location detected but district mapping unavailable. Please select from the list below.'
+        setMessage(silent ? '' : msg)
       }
       setAutoDetecting(false)
     }, err => {
-      setMessage(silent ? '' : 'Permission denied or geolocation error')
+      const msg = lang === 'hi'
+        ? 'स्थान अनुमति अस्वीकृत। कृपया सूची से चुनें।'
+        : 'Location permission denied. Please select your district from the list.'
+      setMessage(silent ? '' : msg)
       setAutoDetecting(false)
     })
   }
